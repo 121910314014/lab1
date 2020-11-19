@@ -1,0 +1,36 @@
+#selection sort#
+a = []
+
+# number of elemetns as input
+n = int(input("Enter number of elements : "))
+
+for i in range(0, n):
+    ele = int(input())
+
+    a.append(ele)  # adding the element
+
+print(a)
+i = 0
+while i<len(a):
+    #smallest element in the sublist
+    smallest = min(a[i:])
+    #index of smallest element
+    index_of_smallest = a.index(smallest)
+    #swapping
+    a[i],a[index_of_smallest] = a[index_of_smallest],a[i]
+    i=i+1
+print (a)
+
+output:
+
+Enter number of elements : 4
+
+2
+
+6
+
+4
+
+3
+[2, 6, 4, 3]
+[2, 3, 4, 6]
