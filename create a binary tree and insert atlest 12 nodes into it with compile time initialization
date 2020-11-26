@@ -1,39 +1,48 @@
-class Node:
+class node:
+    def _init_(self,data=None):
+        self.data=data
+        self.left_node=None
+        self.right_node=None
+class BinaryTree:
+    def _init_(self):
+        self.root=None
 
-    def _init_(self, data):
-
-        self.left = None
-        self.right = None
-        self.data = data
-
-    def insert(self, data):
-# Compare the new value with the parent node
-        if self.data:
-            if data < self.data:
-                if self.left is None:
-                    self.left = Node(data)
-                else:
-                    self.left.insert(data)
-            elif data > self.data:
-                if self.right is None:
-                    self.right = Node(data)
-                else:
-                    self.right.insert(data)
+    def inorder(self):
+        if(self.root==None):
+            print("Tree is Empty.....")
         else:
-            self.data = data
+            self._inorder(self.root)
 
-# Print the tree
-    def PrintTree(self):
-        if self.left:
-            self.left.PrintTree()
-        print( self.data),
-        if self.right:
-            self.right.PrintTree()
+    def _inorder(self,current):
+        if current:
+            print(current.data, end="")
+            self._inorder(current.left_node)
+            self._inorder(current.right_node)
 
-# Use the insert method to add nodes
-root = Node(12)
-root.insert(6)
-root.insert(14)
-root.insert(3)
 
-root.PrintTree()
+ob1=BinaryTree()
+first=node('a')
+second=node('b')
+third=node('c')
+forth=node('d')
+fifth=node('e')
+sixth=node('f')
+seventh=node('g')
+eight=node('h')
+ninth=node('i')
+tenth=node('j')
+eleventh=node('k')
+twelth=node('l')
+ob1.root=first
+first.left_node=second
+first.right_node=third
+second.left_node=forth
+second.right_node=fifth
+third.left_node=sixth
+third.right_node=seventh
+forth.left_node=eight
+forth.right_node=ninth
+fifth.left_node=tenth
+fifth.right_node=eleventh
+print("inorder is",end=" ")
+ob1.inorder()
